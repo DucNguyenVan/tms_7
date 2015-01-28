@@ -1,0 +1,8 @@
+<% provide(:title, 'All courses') %>
+<h1>All courses</h1>
+<%= will_paginate %>
+<ul class="course">
+  <% @courses.each do |course| %>
+  	<%= render course %>
+  <% end %>
+</ul>

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }, if: :require_password?
-
+  belongs_to :course
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create string, cost: cost
@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
 
   def require_password?
     @require_password
+  end
+
+  def show_name_and_id
+    "Name: #{name} | Email: #{email}"    
   end
 
 end

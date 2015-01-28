@@ -1,0 +1,7 @@
+<% provide(:title, 'All courses') %>
+<h1>All courses (<%= @courses.count %>)</h1>
+<%= link_to "New Course", new_course_path %>
+<%= will_paginate %>
+<ul class="course">
+  <%= render @courses %>
+</ul>

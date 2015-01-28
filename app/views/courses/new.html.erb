@@ -1,0 +1,13 @@
+<% provide(:title, 'Create Courses') %>
+<h1>Create course</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@course) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+       <%= collection_select(:user, :user_id, User.all, :id,
+                    :show_name_and_id, prompt: false) %>
+      <%= f.submit "Create new course", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
